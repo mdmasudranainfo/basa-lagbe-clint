@@ -8,37 +8,11 @@ const SellerRequest = () => {
 const {register , handleSubmit, formState: {errors}} = useForm(); 
 
 
-const imageHostKey1 = process.env.REACT_APP_imgbb_KEY1;
-// const imageHostKey2 = process.env.REACT_APP_imgbb_KEY2;
 
 
 const handleSellerRequest = data => {
-  console.log(data)
-  const image1 = data.photo[0];
-  // const image2 = data.nid_photo[0];
-  const formData = new FormData();
-  // const formData2 = new FormData();
-  formData.append('image1', image1);
-  // formData2.append('image2', image2);
-  const url1 = `https://api.imgbb.com/1/upload?key=${imageHostKey1}`
-  // const url2 = `https://api.imgbb.com/1/upload?key=${imageHostKey2}`
-  fetch(url1, {
-    method: 'POST',
-    body: formData
-  })
-  .then(res => res.json())
-  .then(imgData1 => {
-    console.log(imgData1)
-  })
-
-
-
-
-
-
-
-
-
+  
+    console.log(data);
 }
 
 
@@ -121,7 +95,7 @@ const handleSellerRequest = data => {
                   
                   className="file-input file-input-bordered file-input-primary w-full max-w-xs"
                 />
-                {errors.photo &&  <p className='text-red-500'>{errors.photo?.message}</p>  }
+                {/* {errors.photo &&  <p className='text-red-500'>{errors.photo?.message}</p>  } */}
               </div>
             </div>
           </div>
@@ -149,7 +123,7 @@ const handleSellerRequest = data => {
                 
                 className="flex-auto p-4 block rounded-lg font-medium outline-none border border-transparent border-stone-600 focus:border-primary focus:text-black"
               />
-              {errors.nid_number &&  <p className='text-red-500'>{errors.nid_number?.message}</p>  }
+              {/* {errors.nid_number &&  <p className='text-red-500'>{errors.nid_number?.message}</p>  } */}
             </div>
           </div>
 
