@@ -8,6 +8,7 @@ import { toast } from "react-hot-toast";
 
 const EachHomeDetails = () => {
   const details = useLoaderData();
+  console.log(details);
 
   const { user } = useContext(AuthContext);
   // console.log(user?.email, user?.displayName);
@@ -40,8 +41,9 @@ const EachHomeDetails = () => {
       houseTitle: title,
       housePhoto: photo,
       bookingTime: timeDate,
+      sellerEmail: details?.sellerEmail,
     };
-    fetch(" https://basabhara-server.vercel.app/booking", {
+    fetch(" http://localhost:5000/booking", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +75,7 @@ const EachHomeDetails = () => {
       timeDate,
     };
 
-    fetch(" https://basabhara-server.vercel.app/review", {
+    fetch(" http://localhost:5000/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

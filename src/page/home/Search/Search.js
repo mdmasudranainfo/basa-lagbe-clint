@@ -5,9 +5,7 @@ const Search = () => {
   const { data: categorys = [] } = useQuery({
     queryKey: ["categorys"],
     queryFn: () =>
-      fetch(" https://basabhara-server.vercel.app/categories").then((res) =>
-        res.json()
-      ),
+      fetch(" http://localhost:5000/categories").then((res) => res.json()),
   });
 
   return (

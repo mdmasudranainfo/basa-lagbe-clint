@@ -51,13 +51,13 @@ const routes = createBrowserRouter([
         path: "/homes/:category",
         element: <SingleCategories></SingleCategories>,
         // loader: ({ params }) =>
-        //   fetch(` https://basabhara-server.vercel.app/homes/${params.category}`),
+        //   fetch(` http://localhost:5000/homes/${params.category}`),
       },
       {
         path: "/homedetails/:id",
         element: <EachHomeDetails></EachHomeDetails>,
         loader: ({ params }) =>
-          fetch(` https://basabhara-server.vercel.app/details/${params.id}`),
+          fetch(` http://localhost:5000/details/${params.id}`),
       },
     ],
   },

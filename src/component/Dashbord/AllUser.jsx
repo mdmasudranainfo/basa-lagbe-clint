@@ -1,15 +1,39 @@
 import React from "react";
 
 import { useQuery } from "@tanstack/react-query";
+import { toast } from "react-hot-toast";
 
 const AllUser = () => {
-  const { data: users = [] } = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: () =>
-      fetch(" https://basabhara-server.vercel.app/users").then((res) =>
-        res.json()
-      ),
+      fetch(" http://localhost:5000/users").then((res) => res.json()),
   });
+
+  //
+
+  //
+
+  const AdminHandlar = (id) => {
+    console.log(id);
+    const agree = window.confirm("Are you sure you want to Approve?");
+    if (agree) {
+      fetch(` http://localhost:5000/admin/${id}`, {
+        method: "PUT",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            console.log(data);
+            toast.success("Successful");
+            refetch();
+          }
+        })
+        .catch((err) => console.error(err));
+    }
+  };
+
+  //
 
   return (
     <div>
@@ -21,9 +45,9 @@ const AllUser = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Phone</th>
-              <th>Phone</th>
-              <th>Last Login</th>
-              <th>Favorite Color</th>
+              <th>Action</th>
+              {/*              
+              <th>Favorite Color</th> */}
             </tr>
           </thead>
           <tbody>
@@ -34,9 +58,15 @@ const AllUser = () => {
                 <td>{user?.email}</td>
                 <td>{user?.phone}</td>
 
-                <td>Canada</td>
-                <td>12/16/2020</td>
-                <td>Blue</td>
+                <td>
+                  <button
+                    disabled={user?.userType == "admin"}
+                    onClick={() => AdminHandlar(user?._id)}
+                    className="btn btn-sm"
+                  >
+                    Make Admin
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

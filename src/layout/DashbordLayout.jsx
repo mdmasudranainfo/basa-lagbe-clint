@@ -97,7 +97,7 @@ const DashbordLayout = () => {
               <Link to="/dashbord/sellerrequest">Pending Sellers</Link>
             </li>
             <li>
-              <Link to="/dashbord/bookingforSeller">Booking for Seller</Link>
+              <Link to="/dashbord/bookingforSeller">Booking</Link>
             </li>
           </ul>
         </div>

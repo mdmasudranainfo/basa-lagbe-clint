@@ -1,26 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../Context/UserContext";
 
 const AddHome = () => {
+  const { user } = useContext(AuthContext);
   const { data: categorys = [] } = useQuery({
     queryKey: ["categorys"],
     queryFn: () =>
-      fetch(" https://basabhara-server.vercel.app/categories").then((res) =>
-        res.json()
-      ),
+      fetch(" http://localhost:5000/categories").then((res) => res.json()),
   });
 
   // location fetch
   const { data: locations = [] } = useQuery({
     queryKey: ["locations"],
     queryFn: () =>
-      fetch(" https://basabhara-server.vercel.app/locations").then((res) =>
-        res.json()
-      ),
+      fetch(" http://localhost:5000/locations").then((res) => res.json()),
   });
-
-  console.log(locations);
 
   //
   const [gas, setGas] = useState(false);
@@ -73,6 +69,7 @@ const AddHome = () => {
           sit,
           photo,
           expancive,
+          sellerEmail: user?.email,
         };
 
         console.log(allInfo);
@@ -81,7 +78,7 @@ const AddHome = () => {
   };
 
   const savDatabase = (allInfo, from) => {
-    fetch(" https://basabhara-server.vercel.app/allbasa", {
+    fetch(" http://localhost:5000/allbasa", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -15,7 +15,7 @@ const SingleCategories = () => {
     queryKey: ["homes"],
     queryFn: async () => {
       const res = await fetch(
-        ` https://basabhara-server.vercel.app/homes/${params.category}`
+        ` http://localhost:5000/homes/${params.category}`
       );
       const data = await res.json();
       return data;

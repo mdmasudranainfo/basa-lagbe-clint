@@ -24,13 +24,10 @@ const UserContext = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-
   // for logOut_____________________________________________________________________________________
-  const logOut = () =>{
+  const logOut = () => {
     return signOut(auth);
-}
-
-
+  };
 
   // update user profile
   const updateUser = (name) => {
@@ -53,7 +50,7 @@ const UserContext = ({ children }) => {
     login,
     singUp,
     updateUser,
-    logOut
+    logOut,
   };
 
   return (

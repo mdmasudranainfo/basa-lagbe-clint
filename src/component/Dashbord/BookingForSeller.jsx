@@ -1,15 +1,36 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Context/UserContext";
+import toast from "react-hot-toast";
 
 const BookingForSeller = () => {
+  const { user } = useContext(AuthContext);
+
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings"],
     queryFn: async () => {
-      const res = await fetch(" https://basabhara-server.vercel.app/booking");
+      const res = await fetch(`http://localhost:5000/booking/${user?.email}`);
       const data = await res.json();
       return data;
     },
   });
+  console.log(bookings);
+
+  const reportHandelar = (id) => {
+    const agree = window.confirm("Are you sure you want to report this");
+    if (agree) {
+      fetch(`http://localhost:5000/report/${id}`, {
+        method: "PUT",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.acknowledged) {
+            toast.success("Successfully Report");
+          }
+        });
+    }
+  };
 
   return (
     <div>
@@ -62,7 +83,18 @@ const BookingForSeller = () => {
                 <td>{booking?.customerPhone}</td>
                 <td>{booking?.customerTransactionId}</td>
                 <td>{booking?.customerPaymentNumber}</td>
-                <td>{booking?.customerMessage}</td>
+                {/* <td>{booking?.customerMessage}</td> */}
+                <td>
+                  {" "}
+                  <button
+                    disabled={booking?.report}
+                    onClick={() => reportHandelar(booking?._id)}
+                    className="btn btn-sm "
+                  >
+                    Report
+                  </button>
+                  <button className="btn btn-sm ml-1">Confirm</button>
+                </td>
               </tr>
             ))}
           </tbody>
