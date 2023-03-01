@@ -48,12 +48,12 @@ const HomeCard = () => {
                 <div className="flex justify-start gap-5">
                   <div className="flex gap-2">
                     <MdBedroomChild className="mt-1" />
-                    <p>{expencive?.bedRoom} BedRooms</p>
+                    <p>{expencive?.bedRoom} Bed</p>
                   </div>
 
                   <div className="flex gap-2 ">
                     <MdBedroomChild className="mt-1" />
-                    <p>{expencive?.bathRoom} BthRooms</p>
+                    <p>{expencive?.bathRoom} Bath</p>
                   </div>
                 </div>
 

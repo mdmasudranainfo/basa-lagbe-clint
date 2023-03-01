@@ -14,6 +14,7 @@ import DashbordLayout from "../layout/DashbordLayout";
 import SignUp from "../page/login/SignUp";
 import SellerRequest from "../page/Seller/SellerRequest/SellerRequest";
 import Login from "./../page/login/Login";
+import AdminRoute from "./AdminRoute/AdminRoute";
 import PrivateRoute from "./PrivateRoutes/PrivateRoutes";
 const { createBrowserRouter } = require("react-router-dom");
 const { default: MainLayout } = require("../layout/main/MainLayout");
@@ -84,20 +85,37 @@ const routes = createBrowserRouter([
       },
       {
         path: "/dashbord/allhome",
-        element: <AllHome />,
+        element: (
+          <AdminRoute>
+            {" "}
+            <AllHome />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashbord/users",
-        element: <AllUser></AllUser>,
+        element: (
+          <AdminRoute>
+            <AllUser></AllUser>
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashbord/sellers",
-        element: <AllSeller></AllSeller>,
+        element: (
+          <AdminRoute>
+            <AllSeller></AllSeller>
+          </AdminRoute>
+        ),
       },
 
       {
         path: "/dashbord/sellerrequest",
-        element: <PendingSeller></PendingSeller>,
+        element: (
+          <AdminRoute>
+            <PendingSeller></PendingSeller>
+          </AdminRoute>
+        ),
       },
 
       {

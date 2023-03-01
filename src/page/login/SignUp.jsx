@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 // import bg_svg from '../../asect/bg-svg/16921580449449347440.jpg'
 import bg_svg from "../../asect/bg-svg/registraton-img.svg";
 import { AuthContext } from "../../Context/UserContext";
+import { useNavigate } from "react-router-dom";
+
 const SignUp = () => {
-  const { singUp, user, updateUser } = useContext(AuthContext);
+  const { singUp, logOut, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const regHandler = (event) => {
     event.preventDefault();
@@ -45,6 +48,8 @@ const SignUp = () => {
             if (data.acknowledged) {
               toast.success("Register Success");
               from.reset();
+              logOut();
+              navigate("/login");
             }
           });
 
@@ -66,8 +71,7 @@ const SignUp = () => {
   return (
     <div className="px-4" style={{ backgroundImage: `url(${bg_svg})` }}>
       <div
-        className={`md:w-1/2 md:min-w-[650px] mx-auto shadow-xl p-8 mt-10 rounded-lg bg-white`}
-      >
+        className={`md:w-1/2 md:min-w-[650px] mx-auto shadow-xl p-8 mt-10 rounded-lg bg-white`}>
         <h1 className="text-center  mb-4 text-3xl text-primary font-semibold">
           Registration for User
         </h1>
