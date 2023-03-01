@@ -14,6 +14,7 @@ import DashbordLayout from "../layout/DashbordLayout";
 import SignUp from "../page/login/SignUp";
 import SellerRequest from "../page/Seller/SellerRequest/SellerRequest";
 import Login from "./../page/login/Login";
+import PrivateRoute from "./PrivateRoutes/PrivateRoutes";
 const { createBrowserRouter } = require("react-router-dom");
 const { default: MainLayout } = require("../layout/main/MainLayout");
 const { default: Home } = require("../page/home/Home");
@@ -45,7 +46,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/requestseller",
-        element: <SellerRequest></SellerRequest>,
+        element: (
+          <PrivateRoute>
+            <SellerRequest></SellerRequest>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/homes/:category",
@@ -63,7 +68,11 @@ const routes = createBrowserRouter([
   },
   {
     path: "/dashbord",
-    element: <DashbordLayout></DashbordLayout>,
+    element: (
+      <PrivateRoute>
+        <DashbordLayout></DashbordLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashbord/",

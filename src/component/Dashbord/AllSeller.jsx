@@ -19,8 +19,8 @@ const AllSeller = () => {
               <th>Email</th>
               <th>Phone</th>
               <th>location</th>
+
               <th>User Info</th>
-              <th>Approved User</th>
             </tr>
           </thead>
           <tbody>
@@ -36,22 +36,15 @@ const AllSeller = () => {
                   <a
                     className="btn btn-secondary btn-sm text-white"
                     target="blank"
-                    href={user?.nidPic}
-                  >
+                    href={user?.nidPic}>
                     nid
-                  </a>{" "}
+                  </a>
                   <a
                     className="btn btn-secondary btn-sm text-white"
                     target="blank"
-                    href={user?.photo}
-                  >
+                    href={user?.photo}>
                     photo
                   </a>
-                </td>
-                <td>
-                  <button className="btn bg-gradient-to-r from-green-500 via-emerald-500 to-cyan-800 mt-5 mb-10 text-white btn-sm">
-                    Disable
-                  </button>
                 </td>
               </tr>
             ))}
