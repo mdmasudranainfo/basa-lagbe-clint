@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import useAdmin from "../component/Hooka/UseAdmin";
+import useSeller from "../component/Hooka/UseSeller";
 import { AuthContext } from "../Context/UserContext";
 
 const DashbordLayout = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
-  console.log(isAdmin);
+  const [isSeller] = useSeller(user?.email);
+
   return (
     <div className="">
       {/* navbar start
@@ -79,10 +81,12 @@ const DashbordLayout = () => {
             <li>
               <Link to="/dashbord">Dashbord</Link>
             </li>
-            <li>
-              <Link to="/dashbord/addhome">Add Home</Link>
-            </li>
-            {isAdmin && (
+            {isSeller && (
+              <li>
+                <Link to="/dashbord/addhome">Add Home</Link>
+              </li>
+            )}
+            {isSeller && (
               <li>
                 <Link to="/dashbord/allhome">All Home</Link>
               </li>
