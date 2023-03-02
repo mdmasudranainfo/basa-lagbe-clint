@@ -14,7 +14,7 @@ const AllUser = () => {
 
   //
 
-  const AdminHandlar = (id) => {
+  const AdminHandler = (id) => {
     console.log(id);
     const agree = window.confirm("Are you sure you want to Approve?");
     if (agree) {
@@ -39,8 +39,8 @@ const AllUser = () => {
     <div>
       <div className="overflow-x-auto">
         <table className="table table-compact w-full">
-          <thead>
-            <tr>
+          <thead >
+            <tr >
               <th></th>
               <th>Name</th>
               <th>Email</th>
@@ -61,8 +61,8 @@ const AllUser = () => {
                 <td>
                   <button
                     disabled={user?.userType == "admin"}
-                    onClick={() => AdminHandlar(user?._id)}
-                    className="btn btn-sm"
+                    onClick={() => AdminHandler(user?._id)}
+                    className="btn btn-sm btn-warning"
                   >
                     Make Admin
                   </button>

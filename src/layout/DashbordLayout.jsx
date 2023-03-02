@@ -77,37 +77,37 @@ const DashbordLayout = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-base-200 text-base-content">
+          <ul className="menu p-4 w-80 bg-base-200 text-base-content gap-2">
             <li>
-              <Link to="/dashbord">Dashbord</Link>
+              <button className="btn btn-primary btn-outline text-white" ><Link to="/dashbord">Dashbord</Link></button>
             </li>
             {isSeller && (
               <li>
-                <Link to="/dashbord/addhome">Add Home</Link>
+                  <button className="btn btn-primary btn-outline text-white"> <Link to="/dashbord/addhome">Add Home</Link></button>
               </li>
             )}
             {isSeller && (
               <li>
-                <Link to="/dashbord/allhome">All Home</Link>
+                  <button className="btn btn-primary btn-outline text-white"><Link to="/dashbord/allhome">All Home</Link></button>
               </li>
             )}
             {isAdmin && (
               <li>
-                <Link to="/dashbord/users">Users</Link>
+                  <button className="btn btn-primary btn-outline text-white"><Link to="/dashbord/users">Users</Link></button>
               </li>
             )}
             {isAdmin && (
               <li>
-                <Link to="/dashbord/sellers">Sellers</Link>
+                <button className="btn btn-primary btn-outline text-white"> <Link to="/dashbord/sellers">Sellers</Link></button>
               </li>
             )}
             {isAdmin && (
               <li>
-                <Link to="/dashbord/sellerrequest">Pending Sellers</Link>
+                  <button className="btn btn-primary btn-outline text-white" ><Link to="/dashbord/sellerrequest">Pending Sellers</Link></button>
               </li>
             )}
             <li>
-              <Link to="/dashbord/bookingforSeller">Booking</Link>
+                <button className="btn btn-primary btn-outline text-white"> <Link to="/dashbord/bookingforSeller">Booking</Link></button>
             </li>
           </ul>
         </div>
