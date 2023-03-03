@@ -63,6 +63,8 @@ const DashbordLayout = () => {
       </div>
 
       {/* navbar end */}
+
+
       <div className="drawer drawer-mobile container mx-auto">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col ">
@@ -79,7 +81,7 @@ const DashbordLayout = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-200 text-base-content gap-2">
             <li>
-              <button className="btn btn-primary btn-outline text-white" ><Link to="/dashbord">Dashbord</Link></button>
+              <button className="btn btn-primary btn-outline text-white" ><Link to="/dashbord">Dashboard</Link></button>
             </li>
             {isSeller && (
               <li>
