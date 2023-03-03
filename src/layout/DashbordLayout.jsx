@@ -8,6 +8,8 @@ const DashbordLayout = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
   const [isSeller] = useSeller(user?.email);
+  console.log(user?.email);
+  console.log("seller", isSeller);
 
   return (
     <div className="">
@@ -64,7 +66,6 @@ const DashbordLayout = () => {
 
       {/* navbar end */}
 
-
       <div className="drawer drawer-mobile container mx-auto">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col ">
@@ -81,35 +82,52 @@ const DashbordLayout = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-200 text-base-content gap-2">
             <li>
-              <button className="btn btn-primary btn-outline text-white" ><Link to="/dashbord">Dashboard</Link></button>
+              <button className="btn btn-primary btn-outline text-white">
+                <Link to="/dashbord">Dashboard</Link>
+              </button>
             </li>
             {isSeller && (
               <li>
-                  <button className="btn btn-primary btn-outline text-white"> <Link to="/dashbord/addhome">Add Home</Link></button>
+                <button className="btn btn-primary btn-outline text-white">
+                  {" "}
+                  <Link to="/dashbord/addhome">Add Home</Link>
+                </button>
               </li>
             )}
             {isSeller && (
               <li>
-                  <button className="btn btn-primary btn-outline text-white"><Link to="/dashbord/allhome">All Home</Link></button>
+                <button className="btn btn-primary btn-outline text-white">
+                  <Link to="/dashbord/allhome">All Home</Link>
+                </button>
               </li>
             )}
             {isAdmin && (
               <li>
-                  <button className="btn btn-primary btn-outline text-white"><Link to="/dashbord/users">Users</Link></button>
+                <button className="btn btn-primary btn-outline text-white">
+                  <Link to="/dashbord/users">Users</Link>
+                </button>
               </li>
             )}
             {isAdmin && (
               <li>
-                <button className="btn btn-primary btn-outline text-white"> <Link to="/dashbord/sellers">Sellers</Link></button>
+                <button className="btn btn-primary btn-outline text-white">
+                  {" "}
+                  <Link to="/dashbord/sellers">Sellers</Link>
+                </button>
               </li>
             )}
             {isAdmin && (
               <li>
-                  <button className="btn btn-primary btn-outline text-white" ><Link to="/dashbord/sellerrequest">Pending Sellers</Link></button>
+                <button className="btn btn-primary btn-outline text-white">
+                  <Link to="/dashbord/sellerrequest">Pending Sellers</Link>
+                </button>
               </li>
             )}
             <li>
-                <button className="btn btn-primary btn-outline text-white"> <Link to="/dashbord/bookingforSeller">Booking</Link></button>
+              <button className="btn btn-primary btn-outline text-white">
+                {" "}
+                <Link to="/dashbord/bookingforSeller">Booking</Link>
+              </button>
             </li>
           </ul>
         </div>
