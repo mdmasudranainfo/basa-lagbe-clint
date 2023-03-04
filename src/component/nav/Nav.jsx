@@ -18,9 +18,14 @@ function Nav() {
         <Link to="/">Home</Link>
       </li>
 
-      <li className="text-white font-bold">
-        <Link to="/requestseller">Request Seller</Link>
-      </li>
+      
+
+      {
+        user?.uid && 
+        <li className="text-white font-bold">
+            <Link to="/requestseller">Request Seller</Link>
+        </li>
+      }
       
       <li className="text-white font-bold">
         <Link to="/contactus">Contact Us</Link>
