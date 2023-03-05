@@ -23,10 +23,13 @@ const Testimonial = () => {
   });
 
   return (
-    <div className=" container mx-auto mt-10">
-      <h2 className="text-4xl text-primary font-semibold text-center ">
+    <div className=" container mx-auto mt-16">
+      <h2 className="text-6xl text-primary text-center font-semibold ">
         SOME REVIEWS
       </h2>
+      <p className="text-lg text-primary text-center font-semibold mt-3 mb-5">
+        SEE OUR VALUABLE'S CUSTOMERS REVIEWS
+      </p>
       <>
         <Swiper
           loop={true}
