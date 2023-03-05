@@ -27,7 +27,7 @@ const SingleCategories = () => {
       <div className="grid lg:grid-cols-3 gap-3 md:grid-cols-2 grid-cols-1 mt-10">
         {homes.map((home) => (
           <div className=" rounded-lg relative homeCard">
-            <img className="w-full rounded-lg" src={home?.photo} alt="" />
+            <img className="aspect-square object-cover rounded-lg" src={home?.photo} alt="" />
 
             <div className="homeCardDtls absolute w-full  text-white p-2 bg-gradient-to-r from-primary to-secondary">
               <div className="">

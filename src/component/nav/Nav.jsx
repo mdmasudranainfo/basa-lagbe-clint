@@ -34,10 +34,18 @@ function Nav() {
         <Link to="/aboutus">About Us</Link>
       </li>
 
+      
 
-      <li className="text-white font-bold">
+
+      {
+        user?.uid && 
+        <li className="text-white font-bold">
         <Link to="/dashbord">DashBoard</Link>
       </li>
+      }
+
+
+     
 
     </>
   );

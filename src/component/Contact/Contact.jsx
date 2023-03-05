@@ -4,6 +4,7 @@ import { GoMail } from "react-icons/go";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
 import { BiSend } from "react-icons/bi";
+import GoogleMap from "./GoogleMap";
 
 const Contact = () => {
   const sendEmail = (data) => {};
@@ -26,11 +27,7 @@ const Contact = () => {
       </p>
 
       <div>
-        <img
-          src="https://m.media-amazon.com/images/I/61zSkwAvlXL._SX450_.jpg"
-          alt=""
-          className="rounded-2xl"
-        />
+        <GoogleMap></GoogleMap>
       </div>
 
       <h1 className="text-center mt-14 text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-green-500 via-emerald-500 to-cyan-800">

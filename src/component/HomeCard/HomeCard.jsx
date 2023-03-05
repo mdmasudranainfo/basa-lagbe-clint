@@ -25,7 +25,7 @@ const HomeCard = () => {
       <div className="grid lg:grid-cols-3 gap-5 md:grid-cols-2 grid-cols-1 mt-10">
         {expencives?.map((expencive) => (
           <div key={expencive?._id} className=" rounded-lg relative homeCard">
-            <img className="w-full rounded-lg" src={expencive.photo} alt="" />
+            <img className="aspect-square object-cover rounded-lg " src={expencive.photo} alt="" />
 
             <div className="homeCardDtls absolute w-full  text-white p-2 bg-gradient-to-r from-primary to-secondary">
               <div className="">
