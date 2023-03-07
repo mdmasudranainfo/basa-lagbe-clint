@@ -15,7 +15,7 @@ const SingleCategories = () => {
     queryKey: ["homes"],
     queryFn: async () => {
       const res = await fetch(
-        ` http://localhost:5000/homes/${params.category}`
+        ` https://basabhara-server-mdmasudranainfo.vercel.app/homes/${params.category}`
       );
       const data = await res.json();
       return data;
@@ -27,7 +27,11 @@ const SingleCategories = () => {
       <div className="grid lg:grid-cols-3 gap-3 md:grid-cols-2 grid-cols-1 mt-10">
         {homes.map((home) => (
           <div className=" rounded-lg relative homeCard">
-            <img className="aspect-square object-cover rounded-lg" src={home?.photo} alt="" />
+            <img
+              className="aspect-square object-cover rounded-lg"
+              src={home?.photo}
+              alt=""
+            />
 
             <div className="homeCardDtls absolute w-full  text-white p-2 bg-gradient-to-r from-primary to-secondary">
               <div className="">

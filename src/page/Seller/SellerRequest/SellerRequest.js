@@ -55,13 +55,16 @@ const SellerRequest = () => {
             console.log(sellerInfo);
 
             // send Database start
-            fetch(` http://localhost:5000/sellerrequest/${user?.email}`, {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(sellerInfo),
-            })
+            fetch(
+              ` https://basabhara-server-mdmasudranainfo.vercel.app/sellerrequest/${user?.email}`,
+              {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(sellerInfo),
+              }
+            )
               .then((res) => res.json())
               .then((data) => {
                 if (data.acknowledged) {
@@ -92,8 +95,7 @@ const SellerRequest = () => {
   return (
     <div className="px-4">
       <div
-        className={`md:w-1/2 md:min-w-[650px] mx-auto  p-8 mt-10 rounded-lg bg-white`}
-      >
+        className={`md:w-1/2 md:min-w-[650px] mx-auto  p-8 mt-10 rounded-lg bg-white`}>
         <h1 className="  mb-4 text-3xl text-primary font-semibold">
           Request For Seller Account
         </h1>
@@ -192,8 +194,7 @@ const SellerRequest = () => {
           <div className="flex justify-center mt-5 pb-5">
             <button
               className="text-center w-full border border-primary hover:border-primary hover:bg-transparent hover:text-primary  px-10 bg-primary text-white transition-all py-2 text-xl font-medium rounded"
-              type="submit"
-            >
+              type="submit">
               Submit
             </button>
           </div>

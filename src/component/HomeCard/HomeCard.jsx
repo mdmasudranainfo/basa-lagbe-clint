@@ -9,7 +9,9 @@ const HomeCard = () => {
   const { data: expencives = [] } = useQuery({
     queryKey: ["expencive"],
     queryFn: () =>
-      fetch(" http://localhost:5000/expensive").then((res) => res.json()),
+      fetch(
+        " https://basabhara-server-mdmasudranainfo.vercel.app/expensive"
+      ).then((res) => res.json()),
   });
   console.log(expencives);
   return (
@@ -25,7 +27,11 @@ const HomeCard = () => {
       <div className="grid lg:grid-cols-3 gap-5 md:grid-cols-2 grid-cols-1 mt-10">
         {expencives?.map((expencive) => (
           <div key={expencive?._id} className=" rounded-lg relative homeCard">
-            <img className="aspect-square object-cover rounded-lg " src={expencive.photo} alt="" />
+            <img
+              className="aspect-square object-cover rounded-lg "
+              src={expencive.photo}
+              alt=""
+            />
 
             <div className="homeCardDtls absolute w-full  text-white p-2 bg-gradient-to-r from-primary to-secondary">
               <div className="">

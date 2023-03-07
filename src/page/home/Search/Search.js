@@ -2,20 +2,24 @@ import { useQueries, useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import { MdBedroomChild, MdBathroom, MdOutlineDetails } from "react-icons/md";
 import { ImPriceTags } from "react-icons/im";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { IoLocationSharp } from "react-icons/io5";
 
 const Search = () => {
   const { data: categorys = [] } = useQuery({
     queryKey: ["categorys"],
     queryFn: () =>
-      fetch(" http://localhost:5000/categories").then((res) => res.json()),
+      fetch(
+        " https://basabhara-server-mdmasudranainfo.vercel.app/categories"
+      ).then((res) => res.json()),
   });
 
   const { data: locations = [] } = useQuery({
     queryKey: ["locations"],
     queryFn: () =>
-      fetch(" http://localhost:5000/locations").then((res) => res.json()),
+      fetch(
+        " https://basabhara-server-mdmasudranainfo.vercel.app/locations"
+      ).then((res) => res.json()),
   });
 
   const [homes, setHome] = useState([]);
@@ -27,7 +31,7 @@ const Search = () => {
     const category = from.category.value;
 
     fetch(
-      `http://localhost:5000/search?location=${location}&category=${category}`
+      `https://basabhara-server-mdmasudranainfo.vercel.app/search?location=${location}&category=${category}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -88,53 +92,58 @@ const Search = () => {
       </form>
 
       <div className="grid lg:grid-cols-3 gap-5 md:grid-cols-2 grid-cols-1 mt-10">
-      {
-        homes.length > 0  && homes.map(home => <div key={home?._id} className=" rounded-lg relative homeCard">
-        <img className=" aspect-square object-cover rounded-lg" src={home.photo} alt="" />
+        {homes.length > 0 &&
+          homes.map((home) => (
+            <div key={home?._id} className=" rounded-lg relative homeCard">
+              <img
+                className=" aspect-square object-cover rounded-lg"
+                src={home.photo}
+                alt=""
+              />
 
-        <div className="homeCardDtls absolute w-full  text-white p-2 bg-gradient-to-r from-primary to-secondary">
-          <div className="">
-            <h2 className="text-2xl font-semibold">{home?.title}</h2>
-          </div>
+              <div className="homeCardDtls absolute w-full  text-white p-2 bg-gradient-to-r from-primary to-secondary">
+                <div className="">
+                  <h2 className="text-2xl font-semibold">{home?.title}</h2>
+                </div>
 
-          <div className="flex justify-between ">
-            <div className="flex gap-1">
-              <IoLocationSharp className="mt-1" />
-              <p>Location: {home?.location}</p>
-            </div>
+                <div className="flex justify-between ">
+                  <div className="flex gap-1">
+                    <IoLocationSharp className="mt-1" />
+                    <p>Location: {home?.location}</p>
+                  </div>
 
-            <div className="flex gap-1 font-bold">
-              <ImPriceTags className="mt-1" />
-              <p>Price: {home?.price}</p>
-            </div>
-          </div>
+                  <div className="flex gap-1 font-bold">
+                    <ImPriceTags className="mt-1" />
+                    <p>Price: {home?.price}</p>
+                  </div>
+                </div>
 
-          <div className="flex justify-between mt-1 ">
-            <div className="flex justify-start gap-5">
-              <div className="flex gap-2">
-                <MdBedroomChild className="mt-1" />
-                <p>{home?.bedRoom} Bed</p>
+                <div className="flex justify-between mt-1 ">
+                  <div className="flex justify-start gap-5">
+                    <div className="flex gap-2">
+                      <MdBedroomChild className="mt-1" />
+                      <p>{home?.bedRoom} Bed</p>
+                    </div>
+
+                    <div className="flex gap-2 ">
+                      <MdBedroomChild className="mt-1" />
+                      <p>{home?.bathRoom} Bath</p>
+                    </div>
+                  </div>
+
+                  <Link to={`/homedetails/${home._id}`}>
+                    <button
+                      className="btn btn-warning btn-sm text-white"
+                      type="">
+                      {" "}
+                      <MdOutlineDetails className="mr-1" /> View Details
+                    </button>
+                  </Link>
+                </div>
               </div>
-
-              <div className="flex gap-2 ">
-                <MdBedroomChild className="mt-1" />
-                <p>{home?.bathRoom} Bath</p>
-              </div>
             </div>
-
-            <Link to={`/homedetails/${home._id}`}>
-              <button className="btn btn-warning btn-sm text-white" type="">
-                {" "}
-                <MdOutlineDetails className="mr-1" /> View Details
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>)
-      }
+          ))}
       </div>
-
-     
     </div>
   );
 };
