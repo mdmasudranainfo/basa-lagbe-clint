@@ -43,7 +43,7 @@ const EachHomeDetails = () => {
       bookingTime: timeDate,
       sellerEmail: details?.sellerEmail,
     };
-    fetch(" https://basabhara-server-mdmasudranainfo.vercel.app/booking", {
+    fetch("http://localhost:5000/booking", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ const EachHomeDetails = () => {
       timeDate,
     };
 
-    fetch(" https://basabhara-server-mdmasudranainfo.vercel.app/review", {
+    fetch("http://localhost:5000/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

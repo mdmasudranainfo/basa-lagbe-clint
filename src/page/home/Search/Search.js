@@ -9,17 +9,13 @@ const Search = () => {
   const { data: categorys = [] } = useQuery({
     queryKey: ["categorys"],
     queryFn: () =>
-      fetch(
-        " https://basabhara-server-mdmasudranainfo.vercel.app/categories"
-      ).then((res) => res.json()),
+      fetch("http://localhost:5000/categories").then((res) => res.json()),
   });
 
   const { data: locations = [] } = useQuery({
     queryKey: ["locations"],
     queryFn: () =>
-      fetch(
-        " https://basabhara-server-mdmasudranainfo.vercel.app/locations"
-      ).then((res) => res.json()),
+      fetch("http://localhost:5000/locations").then((res) => res.json()),
   });
 
   const [homes, setHome] = useState([]);
@@ -31,7 +27,7 @@ const Search = () => {
     const category = from.category.value;
 
     fetch(
-      `https://basabhara-server-mdmasudranainfo.vercel.app/search?location=${location}&category=${category}`
+      `http://localhost:5000/search?location=${location}&category=${category}`
     )
       .then((res) => res.json())
       .then((data) => {

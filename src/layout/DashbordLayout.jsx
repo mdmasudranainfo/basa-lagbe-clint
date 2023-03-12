@@ -81,80 +81,94 @@ const DashbordLayout = () => {
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-200 text-base-content gap-2">
-
             {/* this section will be implement letter...................................... */}
-            {/* <li>
-              <Link to="/dashbord" className="btn btn-primary btn-outline text-white">
-                 Dashboard
+            <li>
+              <Link
+                to="/dashbord"
+                className="btn btn-primary btn-outline text-white">
+                Dashboard
               </Link>
-            </li> */}
+            </li>
 
-
-
-            
             {isSeller && (
               <li>
-               
-
-                <Link to="/dashbord/addhome" className="btn btn-primary btn-outline text-white">
-               
+                <Link
+                  to="/dashbord/addhome"
+                  className="btn btn-primary btn-outline text-white">
                   {" "}
-                 
                   Add Home
-               
                 </Link>
               </li>
             )}
 
-
-
-            {isAdmin && (
+            {isSeller && (
               <li>
-                  <Link to="/dashbord/allhome" className="btn btn-primary btn-outline text-white">
-                      All Home
-                  </Link>
+                <Link
+                  to="/dashbord/addhome"
+                  className="btn btn-primary btn-outline text-white">
+                  {" "}
+                  My Homes
+                </Link>
               </li>
             )}
 
-
-
+            {isAdmin && (
+              <li>
+                <Link
+                  to="/dashbord/allhome"
+                  className="btn btn-primary btn-outline text-white">
+                  All Home
+                </Link>
+              </li>
+            )}
 
             {isAdmin && (
               <li>
-                <Link to="/dashbord/users" className="btn btn-primary btn-outline text-white">
+                <Link
+                  to="/dashbord/users"
+                  className="btn btn-primary btn-outline text-white">
                   Users
                 </Link>
               </li>
             )}
 
-
-
-
-
             {isAdmin && (
               <li>
-                <Link to="/dashbord/sellers" className="btn btn-primary btn-outline text-white">
+                <Link
+                  to="/dashbord/sellers"
+                  className="btn btn-primary btn-outline text-white">
                   {" "}
                   Sellers
                 </Link>
               </li>
             )}
 
-
-
             {isAdmin && (
               <li>
-                <Link to="/dashbord/sellerrequest" className="btn btn-primary btn-outline text-white">
+                <Link
+                  to="/dashbord/sellerrequest"
+                  className="btn btn-primary btn-outline text-white">
                   Pending Sellers
                 </Link>
               </li>
             )}
 
+            {isSeller && (
+              <li>
+                <Link
+                  to="/dashbord/bookingforSeller"
+                  className="btn btn-primary btn-outline text-white">
+                  {" "}
+                  Booking Sells
+                </Link>
+              </li>
+            )}
 
             <li>
-              <Link to="/dashbord/bookingforSeller" className="btn btn-primary btn-outline text-white">
-                {" "}
-                 Booking
+              <Link
+                to="/dashbord/mybookinguser"
+                className="btn btn-primary btn-outline text-white">
+                Booking
               </Link>
             </li>
           </ul>

@@ -16,9 +16,7 @@ const Testimonial = () => {
   const { data: reviews = [] } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
-      const res = await fetch(
-        " https://basabhara-server-mdmasudranainfo.vercel.app/review"
-      );
+      const res = await fetch("http://localhost:5000/review");
       const data = await res.json();
       return data;
     },

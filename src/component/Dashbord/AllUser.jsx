@@ -7,9 +7,7 @@ const AllUser = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: () =>
-      fetch(" https://basabhara-server-mdmasudranainfo.vercel.app/users").then(
-        (res) => res.json()
-      ),
+      fetch("http://localhost:5000/users").then((res) => res.json()),
   });
 
   //
@@ -20,12 +18,9 @@ const AllUser = () => {
     console.log(id);
     const agree = window.confirm("Are you sure you want to Approve?");
     if (agree) {
-      fetch(
-        ` https://basabhara-server-mdmasudranainfo.vercel.app/admin/${id}`,
-        {
-          method: "PUT",
-        }
-      )
+      fetch(`http://localhost:5000/admin/${id}`, {
+        method: "PUT",
+      })
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {
