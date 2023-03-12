@@ -1,6 +1,7 @@
 import About from "../component/About/About";
 import Contact from "../component/Contact/Contact";
 import AddHome from "../component/Dashbord/AddHome";
+import AllBooking from "../component/Dashbord/AllBooking/AllBooking";
 import AllHome from "../component/Dashbord/AllHome";
 import AllSeller from "../component/Dashbord/AllSeller";
 
@@ -102,6 +103,14 @@ const routes = createBrowserRouter([
         element: (
           <AdminRoute>
             <AllUser></AllUser>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashbord/allbooking",
+        element: (
+          <AdminRoute>
+            <AllBooking />
           </AdminRoute>
         ),
       },

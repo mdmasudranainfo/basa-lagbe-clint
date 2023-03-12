@@ -153,6 +153,16 @@ const DashbordLayout = () => {
               </li>
             )}
 
+            {isAdmin && (
+              <li>
+                <Link
+                  to="/dashbord/allbooking"
+                  className="btn btn-primary btn-outline text-white">
+                  All Booking
+                </Link>
+              </li>
+            )}
+
             {isSeller && (
               <li>
                 <Link
@@ -168,7 +178,7 @@ const DashbordLayout = () => {
               <Link
                 to="/dashbord/mybookinguser"
                 className="btn btn-primary btn-outline text-white">
-                Booking
+                My Booking
               </Link>
             </li>
           </ul>

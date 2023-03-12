@@ -1,55 +1,37 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
-import { AuthContext } from "../../Context/UserContext";
+import { AuthContext } from "../../../Context/UserContext";
 
-const MyBookingUser = () => {
+const AllBooking = () => {
   const { user } = useContext(AuthContext);
 
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings"],
     queryFn: async () => {
-      const res = await fetch(
-        `http://localhost:5000/bookingUser/${user?.email}`
-      );
+      const res = await fetch(`http://localhost:5000/allbooking`);
       const data = await res.json();
       return data;
     },
   });
 
-  const reportHandelar = (id) => {
-    const agree = window.confirm("Are you sure you want to report this");
-    if (agree) {
-      fetch(`http://localhost:5000/report/${id}`, {
-        method: "PUT",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.acknowledged) {
-            toast.success("Successfully Report");
-          }
-        });
-    }
-  };
-
-  const ConfirmHandelar = (id) => {
-    const agree = window.confirm("Are you sure you want to Confirm this");
-    if (agree) {
-      fetch(`http://localhost:5000/confirm/${id}`, {
-        method: "PUT",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.acknowledged) {
-            toast.success("Successfully Report");
-          }
-        });
-    }
-  };
-
   console.log(bookings);
+
+  const PaidHandelar = (id) => {
+    const agree = window.confirm("Are you sure Paid this book");
+    if (agree) {
+      fetch(`http://localhost:5000/paid/${id}`, {
+        method: "PUT",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.acknowledged) {
+            toast.success("Successfully Report");
+          }
+        });
+    }
+  };
   return (
     <div>
       <div className="overflow-x-auto w-full">
@@ -105,16 +87,10 @@ const MyBookingUser = () => {
                 <td>
                   {" "}
                   <button
-                    disabled={booking?.report}
-                    onClick={() => reportHandelar(booking?._id)}
-                    className="btn btn-sm ">
-                    Report
-                  </button>
-                  <button
-                    disabled={booking?.confirm}
-                    onClick={() => ConfirmHandelar(booking?._id)}
+                    disabled={booking?.paid}
+                    onClick={() => PaidHandelar(booking?._id)}
                     className="btn btn-sm ml-1">
-                    Confirm
+                    Paid
                   </button>
                 </td>
               </tr>
@@ -126,4 +102,4 @@ const MyBookingUser = () => {
   );
 };
 
-export default MyBookingUser;
+export default AllBooking;
