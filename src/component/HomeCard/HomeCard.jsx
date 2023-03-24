@@ -13,7 +13,7 @@ const HomeCard = () => {
   });
   console.log(expencives);
   return (
-    <div className="container mx-auto ">
+    <div id="expensive" className="container mx-auto ">
       <h2 className="text-6xl text-primary text-center font-semibold">
         Expensive Home
       </h2>

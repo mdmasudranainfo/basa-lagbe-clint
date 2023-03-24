@@ -77,9 +77,9 @@ const Slider = () => {
                 Whether you’re looking to sell or let your home or want to buy
                 or rent a home, we really are the people for you to come to.
               </p>
-              <button className="my-3 btn btn-primary w-[120px]">
+              <a href="#expensive" className="my-3 btn btn-primary w-[120px]">
                 Book Now
-              </button>
+              </a>
             </div>
             <img
               className=" hidden sm:block"
