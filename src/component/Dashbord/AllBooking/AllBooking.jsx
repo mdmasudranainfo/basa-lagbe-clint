@@ -9,7 +9,9 @@ const AllBooking = () => {
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/allbooking`);
+      const res = await fetch(
+        `https://basabhara-server-mdmasudranainfo.vercel.app/allbooking`
+      );
       const data = await res.json();
       return data;
     },
@@ -20,7 +22,7 @@ const AllBooking = () => {
   const PaidHandelar = (id) => {
     const agree = window.confirm("Are you sure Paid this book");
     if (agree) {
-      fetch(`http://localhost:5000/paid/${id}`, {
+      fetch(`https://basabhara-server-mdmasudranainfo.vercel.app/paid/${id}`, {
         method: "PUT",
       })
         .then((res) => res.json())
@@ -89,7 +91,8 @@ const AllBooking = () => {
                   <button
                     disabled={booking?.paid}
                     onClick={() => PaidHandelar(booking?._id)}
-                    className="btn btn-sm ml-1">
+                    className="btn btn-sm ml-1"
+                  >
                     Paid
                   </button>
                 </td>

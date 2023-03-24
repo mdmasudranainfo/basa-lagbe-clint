@@ -9,13 +9,17 @@ const Search = () => {
   const { data: categorys = [] } = useQuery({
     queryKey: ["categorys"],
     queryFn: () =>
-      fetch("http://localhost:5000/categories").then((res) => res.json()),
+      fetch(
+        "https://basabhara-server-mdmasudranainfo.vercel.app/categories"
+      ).then((res) => res.json()),
   });
 
   const { data: locations = [] } = useQuery({
     queryKey: ["locations"],
     queryFn: () =>
-      fetch("http://localhost:5000/locations").then((res) => res.json()),
+      fetch(
+        "https://basabhara-server-mdmasudranainfo.vercel.app/locations"
+      ).then((res) => res.json()),
   });
 
   const [homes, setHome] = useState([]);
@@ -27,7 +31,7 @@ const Search = () => {
     const category = from.category.value;
 
     fetch(
-      `http://localhost:5000/search?location=${location}&category=${category}`
+      `https://basabhara-server-mdmasudranainfo.vercel.app/search?location=${location}&category=${category}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -39,54 +43,55 @@ const Search = () => {
 
   return (
     <div className="container mx-auto ">
-      <form onSubmit={handleSearch} >
+      <form onSubmit={handleSearch}>
         <div className="max-w-[500px] mx-auto">
-          
-        <div className="grid lg:grid-cols-3 sm:grid-cols-1 mt-10 justify-items-center ">
-          <div className=" rounded-lg flex flex-col gap-2 mb-4  ">
-            <label htmlFor="email" className="text-xl font-medium">
-              Select Category
-            </label>
-            <select
-              required
-              name="category"
-              className="select w-full  select-bordered">
-              <option disabled selected>
-                Select category
-              </option>
-              {categorys.map((category) => (
-                <option key={category._id} value={category?.category}>
-                  {category?.category}
+          <div className="grid lg:grid-cols-3 sm:grid-cols-1 mt-10 justify-items-center ">
+            <div className=" rounded-lg flex flex-col gap-2 mb-4  ">
+              <label htmlFor="email" className="text-xl font-medium">
+                Select Category
+              </label>
+              <select
+                required
+                name="category"
+                className="select w-full  select-bordered"
+              >
+                <option disabled selected>
+                  Select category
                 </option>
-              ))}
-            </select>
-          </div>
+                {categorys.map((category) => (
+                  <option key={category._id} value={category?.category}>
+                    {category?.category}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-          <div className=" rounded-lg flex flex-col gap-2 mb-4  ">
-            <label htmlFor="email" className="text-xl font-medium">
-              Select Location
-            </label>
-            <select
-              required
-              name="location"
-              className="select w-full select-bordered">
-              <option disabled selected>
+            <div className=" rounded-lg flex flex-col gap-2 mb-4  ">
+              <label htmlFor="email" className="text-xl font-medium">
                 Select Location
-              </option>
-              {locations.map((location) => (
-                <option key={location._id} value={location?.location}>
-                  {location?.location}
+              </label>
+              <select
+                required
+                name="location"
+                className="select w-full select-bordered"
+              >
+                <option disabled selected>
+                  Select Location
                 </option>
-              ))}
-            </select>
-          </div>
+                {locations.map((location) => (
+                  <option key={location._id} value={location?.location}>
+                    {location?.location}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-          <div className="flex items-center mt-3">
-            <button type="search" className="btn btn-primary w-full">
-              Search
-            </button>
+            <div className="flex items-center mt-3">
+              <button type="search" className="btn btn-primary w-full">
+                Search
+              </button>
+            </div>
           </div>
-        </div>
         </div>
       </form>
 
@@ -133,7 +138,8 @@ const Search = () => {
                   <Link to={`/homedetails/${home._id}`}>
                     <button
                       className="btn btn-warning btn-sm text-white"
-                      type="">
+                      type=""
+                    >
                       {" "}
                       <MdOutlineDetails className="mr-1" /> View Details
                     </button>

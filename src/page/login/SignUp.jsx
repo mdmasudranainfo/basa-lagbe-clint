@@ -36,7 +36,7 @@ const SignUp = () => {
 
         // post backend start
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://basabhara-server-mdmasudranainfo.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -71,7 +71,8 @@ const SignUp = () => {
   return (
     <div className="px-4" style={{ backgroundImage: `url(${bg_svg})` }}>
       <div
-        className={`md:w-1/2 md:min-w-[650px] mx-auto shadow-xl p-8 mt-10 rounded-lg bg-white`}>
+        className={`md:w-1/2 md:min-w-[650px] mx-auto shadow-xl p-8 mt-10 rounded-lg bg-white`}
+      >
         <h1 className="text-center  mb-4 text-3xl text-primary font-semibold">
           Registration for User
         </h1>

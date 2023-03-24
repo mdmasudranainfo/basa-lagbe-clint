@@ -5,7 +5,9 @@ const AllSeller = () => {
   const { data: sellers = [] } = useQuery({
     queryKey: ["sellers"],
     queryFn: () =>
-      fetch("http://localhost:5000/seller").then((res) => res.json()),
+      fetch("https://basabhara-server-mdmasudranainfo.vercel.app/seller").then(
+        (res) => res.json()
+      ),
   });
   console.log(sellers);
   return (
@@ -36,13 +38,15 @@ const AllSeller = () => {
                   <a
                     className="btn btn-secondary btn-sm text-white"
                     target="blank"
-                    href={user?.nidPic}>
+                    href={user?.nidPic}
+                  >
                     nid
                   </a>
                   <a
                     className="btn btn-secondary btn-sm text-white"
                     target="blank"
-                    href={user?.photo}>
+                    href={user?.photo}
+                  >
                     photo
                   </a>
                 </td>

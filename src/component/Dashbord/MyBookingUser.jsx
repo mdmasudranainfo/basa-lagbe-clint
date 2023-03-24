@@ -10,7 +10,7 @@ const MyBookingUser = () => {
     queryKey: ["bookings"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/bookingUser/${user?.email}`
+        `https://basabhara-server-mdmasudranainfo.vercel.app/bookingUser/${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -20,9 +20,12 @@ const MyBookingUser = () => {
   const reportHandelar = (id) => {
     const agree = window.confirm("Are you sure you want to report this");
     if (agree) {
-      fetch(`http://localhost:5000/report/${id}`, {
-        method: "PUT",
-      })
+      fetch(
+        `https://basabhara-server-mdmasudranainfo.vercel.app/report/${id}`,
+        {
+          method: "PUT",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -36,9 +39,12 @@ const MyBookingUser = () => {
   const ConfirmHandelar = (id) => {
     const agree = window.confirm("Are you sure you want to Confirm this");
     if (agree) {
-      fetch(`http://localhost:5000/confirm/${id}`, {
-        method: "PUT",
-      })
+      fetch(
+        `https://basabhara-server-mdmasudranainfo.vercel.app/confirm/${id}`,
+        {
+          method: "PUT",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -107,13 +113,15 @@ const MyBookingUser = () => {
                   <button
                     disabled={booking?.report}
                     onClick={() => reportHandelar(booking?._id)}
-                    className="btn btn-sm ">
+                    className="btn btn-sm "
+                  >
                     Report
                   </button>
                   <button
                     disabled={booking?.confirm}
                     onClick={() => ConfirmHandelar(booking?._id)}
-                    className="btn btn-sm ml-1">
+                    className="btn btn-sm ml-1"
+                  >
                     Confirm
                   </button>
                 </td>

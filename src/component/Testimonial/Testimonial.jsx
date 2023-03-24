@@ -16,7 +16,9 @@ const Testimonial = () => {
   const { data: reviews = [] } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/review");
+      const res = await fetch(
+        "https://basabhara-server-mdmasudranainfo.vercel.app/review"
+      );
       const data = await res.json();
       return data;
     },
@@ -59,7 +61,8 @@ const Testimonial = () => {
             },
           }}
           modules={[Pagination, Autoplay]}
-          className="mySwiper">
+          className="mySwiper"
+        >
           <div className=""></div>
           {reviews.map((review) => (
             <SwiperSlide key={review._id}>

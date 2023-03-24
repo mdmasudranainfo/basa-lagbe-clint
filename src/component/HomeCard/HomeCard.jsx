@@ -9,7 +9,9 @@ const HomeCard = () => {
   const { data: expencives = [] } = useQuery({
     queryKey: ["expencive"],
     queryFn: () =>
-      fetch("http://localhost:5000/expensive").then((res) => res.json()),
+      fetch(
+        "https://basabhara-server-mdmasudranainfo.vercel.app/expensive"
+      ).then((res) => res.json()),
   });
   console.log(expencives);
   return (

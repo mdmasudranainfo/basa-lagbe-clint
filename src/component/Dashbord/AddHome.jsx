@@ -10,14 +10,18 @@ const AddHome = () => {
   const { data: categorys = [] } = useQuery({
     queryKey: ["categorys"],
     queryFn: () =>
-      fetch("http://localhost:5000/categories").then((res) => res.json()),
+      fetch(
+        "https://basabhara-server-mdmasudranainfo.vercel.app/categories"
+      ).then((res) => res.json()),
   });
 
   // location fetch
   const { data: locations = [] } = useQuery({
     queryKey: ["locations"],
     queryFn: () =>
-      fetch("http://localhost:5000/locations").then((res) => res.json()),
+      fetch(
+        "https://basabhara-server-mdmasudranainfo.vercel.app/locations"
+      ).then((res) => res.json()),
   });
 
   //
@@ -81,7 +85,7 @@ const AddHome = () => {
   };
 
   const savDatabase = (allInfo, from) => {
-    fetch("http://localhost:5000/allbasa", {
+    fetch("https://basabhara-server-mdmasudranainfo.vercel.app/allbasa", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +106,8 @@ const AddHome = () => {
   return (
     <div className="px-4">
       <div
-        className={`md:w-1/2 md:min-w-[650px] mx-auto  p-8 mt-10 rounded-lg bg-white`}>
+        className={`md:w-1/2 md:min-w-[650px] mx-auto  p-8 mt-10 rounded-lg bg-white`}
+      >
         <h1 className="  mb-4 text-3xl text-primary font-semibold">
           Add Your Home
         </h1>
@@ -143,7 +148,8 @@ const AddHome = () => {
             <select
               required
               name="location"
-              className="select w-full max-w-xs  select-bordered">
+              className="select w-full max-w-xs  select-bordered"
+            >
               <option disabled selected>
                 Select Location
               </option>
@@ -187,7 +193,8 @@ const AddHome = () => {
               <select
                 required
                 name="category"
-                className="select w-full max-w-xs  select-bordered">
+                className="select w-full max-w-xs  select-bordered"
+              >
                 <option disabled selected>
                   Select category
                 </option>
@@ -209,7 +216,8 @@ const AddHome = () => {
               <select
                 required
                 name="bed"
-                className="select w-full max-w-xs  select-bordered">
+                className="select w-full max-w-xs  select-bordered"
+              >
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
@@ -226,7 +234,8 @@ const AddHome = () => {
               <select
                 required
                 name="bath"
-                className="select w-full max-w-xs  select-bordered">
+                className="select w-full max-w-xs  select-bordered"
+              >
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
@@ -242,7 +251,8 @@ const AddHome = () => {
               </label>
               <select
                 name="duration"
-                className="select w-full max-w-xs  select-bordered">
+                className="select w-full max-w-xs  select-bordered"
+              >
                 <option value="">Nane</option>
                 <option value={5}>5</option>
                 <option value={10}>10</option>
@@ -255,7 +265,8 @@ const AddHome = () => {
               </label>
               <select
                 name="sit"
-                className="select w-full max-w-xs  select-bordered">
+                className="select w-full max-w-xs  select-bordered"
+              >
                 <option value="">Nane</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>

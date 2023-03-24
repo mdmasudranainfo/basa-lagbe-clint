@@ -43,7 +43,7 @@ const EachHomeDetails = () => {
       bookingTime: timeDate,
       sellerEmail: details?.sellerEmail,
     };
-    fetch("http://localhost:5000/booking", {
+    fetch("https://basabhara-server-mdmasudranainfo.vercel.app/booking", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +75,7 @@ const EachHomeDetails = () => {
       timeDate,
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://basabhara-server-mdmasudranainfo.vercel.app/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -251,7 +251,8 @@ const EachHomeDetails = () => {
 
             <button
               type="submit"
-              className="btn bg-gradient-to-r from-green-500 via-emerald-500 to-cyan-800 mt-5 mb-10 text-white w-full">
+              className="btn bg-gradient-to-r from-green-500 via-emerald-500 to-cyan-800 mt-5 mb-10 text-white w-full"
+            >
               Request Booking
               <span className="pl-2">
                 <BiSend size="20px" />
@@ -280,11 +281,13 @@ const EachHomeDetails = () => {
             className="textarea textarea-info lg:w-2/5 w-full"
             placeholder="Write Your Review"
             name="message"
-            required></textarea>{" "}
+            required
+          ></textarea>{" "}
           <br />
           <button
             type="submit"
-            className="btn bg-gradient-to-r from-green-500 via-emerald-500 to-cyan-800 mt-5 mb-10 text-white ">
+            className="btn bg-gradient-to-r from-green-500 via-emerald-500 to-cyan-800 mt-5 mb-10 text-white "
+          >
             Submit
             <span className="pl-2">
               <BiSend size="20px" />
