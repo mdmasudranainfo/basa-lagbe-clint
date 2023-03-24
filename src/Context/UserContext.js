@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signOut,
   updateProfile,
@@ -37,6 +38,10 @@ const UserContext = ({ children }) => {
     });
   };
 
+  const forgetPass = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (CurrntUser) => {
       setUser(CurrntUser);
@@ -51,6 +56,7 @@ const UserContext = ({ children }) => {
     singUp,
     updateUser,
     logOut,
+    forgetPass,
   };
 
   return (
