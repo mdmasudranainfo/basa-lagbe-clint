@@ -39,7 +39,9 @@ const Search = () => {
 
   return (
     <div className="container mx-auto ">
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearch} >
+        <div className="max-w-[500px] mx-auto">
+          
         <div className="grid lg:grid-cols-3 sm:grid-cols-1 mt-10 justify-items-center ">
           <div className=" rounded-lg flex flex-col gap-2 mb-4  ">
             <label htmlFor="email" className="text-xl font-medium">
@@ -48,7 +50,7 @@ const Search = () => {
             <select
               required
               name="category"
-              className="select w-full max-w-xs  select-bordered">
+              className="select w-full  select-bordered">
               <option disabled selected>
                 Select category
               </option>
@@ -67,7 +69,7 @@ const Search = () => {
             <select
               required
               name="location"
-              className="select w-full max-w-xs  select-bordered">
+              className="select w-full select-bordered">
               <option disabled selected>
                 Select Location
               </option>
@@ -79,11 +81,12 @@ const Search = () => {
             </select>
           </div>
 
-          <div className="mt-9">
-            <button type="search" className="btn btn-primary">
+          <div className="flex items-center mt-3">
+            <button type="search" className="btn btn-primary w-full">
               Search
             </button>
           </div>
+        </div>
         </div>
       </form>
 
