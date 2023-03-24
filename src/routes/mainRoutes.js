@@ -13,6 +13,7 @@ import Status from "../component/Dashbord/Status";
 import EachHomeDetails from "../component/OurCategory/SingleCategories/EachHomeDetails";
 import SingleCategories from "../component/OurCategory/SingleCategories/SingleCategories";
 import DashbordLayout from "../layout/DashbordLayout";
+import ResetPassword from "../page/login/ResetPassword";
 import SignUp from "../page/login/SignUp";
 import SellerRequest from "../page/Seller/SellerRequest/SellerRequest";
 import Login from "./../page/login/Login";
@@ -67,6 +68,10 @@ const routes = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/details/${params.id}`),
       },
+      {
+        path:"/resetpassword",
+        element:<ResetPassword></ResetPassword>
+      }
     ],
   },
   {
