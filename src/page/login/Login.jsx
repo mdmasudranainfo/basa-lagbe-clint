@@ -10,9 +10,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-
-  const from = location.state?.from?.pathname || '/';
-
+  const from = location.state?.from?.pathname || "/";
 
   const loginHandler = (event) => {
     event.preventDefault();
@@ -23,7 +21,7 @@ const Login = () => {
       .then((data) => {
         const user = data.user;
         toast.success("Login Success");
-        navigate(from , {replace: true});
+        navigate(from, { replace: true });
         form.reset();
       })
       .catch((err) => {
@@ -74,9 +72,19 @@ const Login = () => {
               Login
             </button>
           </div>
-         
         </form>
-        <p>Dont Have An Account? <span className="text-orange-500" ><Link to="/signup">Create an Account</Link></span> </p>
+        <p>
+          Forget Password?{" "}
+          <span className="text-orange-500">
+            <Link to="/resetpassword">Reset</Link>
+          </span>{" "}
+        </p>
+        <p className="mt-1">
+          Dont Have An Account?{" "}
+          <span className="text-orange-500">
+            <Link to="/signup">Create an Account</Link>
+          </span>{" "}
+        </p>
       </div>
     </div>
   );
