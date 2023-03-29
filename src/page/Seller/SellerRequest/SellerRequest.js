@@ -55,16 +55,13 @@ const SellerRequest = () => {
             console.log(sellerInfo);
 
             // send Database start
-            fetch(
-              `https://basabhara-server-mdmasudranainfo.vercel.app/sellerrequest/${user?.email}`,
-              {
-                method: "PUT",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(sellerInfo),
-              }
-            )
+            fetch(`http://localhost:5000/sellerrequest/${user?.email}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(sellerInfo),
+            })
               .then((res) => res.json())
               .then((data) => {
                 if (data.acknowledged) {
@@ -109,6 +106,7 @@ const SellerRequest = () => {
               <input
                 type="name"
                 name="name"
+                required
                 defaultValue={user?.displayName}
                 placeholder="Enter Your Full Name"
                 className="flex-auto p-4 block rounded-lg font-medium outline-none border border-transparent border-stone-600 focus:border-primary focus:text-black "
@@ -123,6 +121,7 @@ const SellerRequest = () => {
             <input
               type="text"
               name="location"
+              required
               placeholder="Enter Your Location"
               className="flex-auto p-4 block rounded-lg font-medium outline-none border border-transparent border-stone-600 focus:border-primary focus:text-black"
             />
@@ -136,6 +135,7 @@ const SellerRequest = () => {
               <input
                 type="number"
                 name="phone"
+                required
                 placeholder="Enter Your Phone Number"
                 className="flex-auto p-4 block rounded-lg font-medium outline-none border border-transparent border-stone-600 focus:border-primary focus:text-black"
               />
@@ -149,6 +149,7 @@ const SellerRequest = () => {
                 <input
                   type="file"
                   name="sellerPhoto"
+                  required
                   placeholder=""
                   className="file-input file-input-bordered file-input-primary w-full max-w-xs"
                 />
@@ -164,6 +165,7 @@ const SellerRequest = () => {
               <input
                 type="file"
                 name="nidPhoto"
+                required
                 className="file-input file-input-bordered file-input-primary w-full max-w-xs"
               />
             </div>
@@ -174,6 +176,7 @@ const SellerRequest = () => {
               <input
                 type="number"
                 name="nid"
+                required
                 placeholder="Enter Your NID Number"
                 className="flex-auto p-4 block rounded-lg font-medium outline-none border border-transparent border-stone-600 focus:border-primary focus:text-black"
               />

@@ -8,6 +8,7 @@ import AllSeller from "../component/Dashbord/AllSeller";
 import AllUser from "../component/Dashbord/AllUser";
 import BookingForSeller from "../component/Dashbord/BookingForSeller";
 import MyBookingUser from "../component/Dashbord/MyBookingUser";
+import MyHomesSl from "../component/Dashbord/MyHomesSl/MyHomesSl";
 import PendingSeller from "../component/Dashbord/PendingSeller";
 import Status from "../component/Dashbord/Status";
 import EachHomeDetails from "../component/OurCategory/SingleCategories/EachHomeDetails";
@@ -60,15 +61,13 @@ const routes = createBrowserRouter([
         path: "/homes/:category",
         element: <SingleCategories></SingleCategories>,
         // loader: ({ params }) =>
-        //   fetch(`https://basabhara-server-mdmasudranainfo.vercel.app/homes/${params.category}`),
+        //   fetch(`http://localhost:5000/homes/${params.category}`),
       },
       {
         path: "/homedetails/:id",
         element: <EachHomeDetails></EachHomeDetails>,
         loader: ({ params }) =>
-          fetch(
-            `https://basabhara-server-mdmasudranainfo.vercel.app/details/${params.id}`
-          ),
+          fetch(`http://localhost:5000/details/${params.id}`),
       },
       {
         path: "/resetpassword",
@@ -91,6 +90,10 @@ const routes = createBrowserRouter([
       {
         path: "/dashbord/addhome",
         element: <AddHome></AddHome>,
+      },
+      {
+        path: "/dashbord/mybookingsl",
+        element: <MyHomesSl></MyHomesSl>,
       },
       {
         path: "/dashbord/mybookinguser",

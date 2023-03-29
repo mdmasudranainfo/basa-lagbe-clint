@@ -1,37 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
-import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../Context/UserContext";
 
-const AllBooking = () => {
+const MyHomesSl = () => {
   const { user } = useContext(AuthContext);
 
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/allbooking`);
+      const res = await fetch(`http://localhost:5000/allbooking/${user.email}`);
       const data = await res.json();
       return data;
     },
   });
 
-  console.log(bookings);
-
-  const PaidHandelar = (id) => {
-    const agree = window.confirm("Are you sure Paid this book");
-    if (agree) {
-      fetch(`http://localhost:5000/paid/${id}`, {
-        method: "PUT",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.acknowledged) {
-            toast.success("Successfully Report");
-          }
-        });
-    }
-  };
   return (
     <div>
       <div className="overflow-x-auto w-full">
@@ -86,13 +68,11 @@ const AllBooking = () => {
                 {/* <td>{booking?.customerMessage}</td> */}
                 <td>
                   {" "}
-                  <button
-                    disabled={booking?.paid}
-                    onClick={() => PaidHandelar(booking?._id)}
-                    className="btn btn-sm ml-1"
-                  >
-                    Paid
-                  </button>
+                  {booking?.paid ? (
+                    <span className="ml-1">Paid</span>
+                  ) : (
+                    <span className="ml-1">UnPaid</span>
+                  )}
                 </td>
               </tr>
             ))}
@@ -103,4 +83,4 @@ const AllBooking = () => {
   );
 };
 
-export default AllBooking;
+export default MyHomesSl;

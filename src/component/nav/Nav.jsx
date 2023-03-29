@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/UserContext";
 
+import useSeller from "../Hooka/UseSeller";
+
 function Nav() {
   const { user, logOut } = useContext(AuthContext);
+  // const [isAdmin] = useAdmin(user?.email);
+  const [isSeller] = useSeller(user?.email);
 
   const handleLogOut = () => {
     logOut()
@@ -18,15 +22,12 @@ function Nav() {
         <Link to="/">Home</Link>
       </li>
 
-      
-
-      {
-        user?.uid && 
+      {user?.uid && !isSeller && (
         <li className="text-white font-bold">
-            <Link to="/requestseller">Request Seller</Link>
+          <Link to="/requestseller">Request Seller</Link>
         </li>
-      }
-      
+      )}
+
       <li className="text-white font-bold">
         <Link to="/contactus">Contact Us</Link>
       </li>
@@ -34,19 +35,11 @@ function Nav() {
         <Link to="/aboutus">About Us</Link>
       </li>
 
-      
-
-
-      {
-        user?.uid && 
+      {user?.uid && (
         <li className="text-white font-bold">
-        <Link to="/dashbord">DashBoard</Link>
-      </li>
-      }
-
-
-     
-
+          <Link to="/dashbord">DashBoard</Link>
+        </li>
+      )}
     </>
   );
 
@@ -78,8 +71,11 @@ function Nav() {
               {menuItem}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-2xl text-white">
-          বাড়িভাড়া
+          <Link
+            to="/"
+            className="btn btn-ghost normal-case text-2xl text-white"
+          >
+            বাড়িভাড়া
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -104,11 +100,7 @@ function Nav() {
                 </li>
               </ul>
             </>
-          ) 
-          
-          : 
-          
-          (
+          ) : (
             <li>
               <Link className="btn btn-sm btn-primary text-white" to="/login">
                 Login

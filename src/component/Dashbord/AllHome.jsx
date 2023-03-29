@@ -7,9 +7,7 @@ const AllHome = () => {
   const { data: homes = [], refetch } = useQuery({
     queryKey: ["homes"],
     queryFn: () =>
-      fetch("https://basabhara-server-mdmasudranainfo.vercel.app/allbasa").then(
-        (res) => res.json()
-      ),
+      fetch("http://localhost:5000/allbasa").then((res) => res.json()),
   });
   // console.log(homes);
 
@@ -17,12 +15,9 @@ const AllHome = () => {
     const agree = window.confirm(`Are you sure  delete ${basa.title}`);
 
     if (agree) {
-      fetch(
-        `https://basabhara-server-mdmasudranainfo.vercel.app/delete/${basa?._id}`,
-        {
-          method: "DELETE",
-        }
-      )
+      fetch(`http://localhost:5000/delete/${basa?._id}`, {
+        method: "DELETE",
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
