@@ -47,7 +47,7 @@ const DashbordLayout = () => {
             to="/"
             className="lg:block hidden text-white font-bold  normal-case text-2xl"
           >
-            বাড়িভাড়া
+            বাড়ি-ভাড়া
           </Link>
         </div>
         <div className="flex-none">

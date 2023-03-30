@@ -75,7 +75,7 @@ function Nav() {
             to="/"
             className="btn btn-ghost normal-case text-2xl text-white"
           >
-            বাড়িভাড়া
+            বাড়ি-ভাড়া
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
