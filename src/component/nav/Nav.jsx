@@ -44,7 +44,7 @@ function Nav() {
   );
 
   return (
-    <div className="shadow-lg bg-black ">
+    <div className="shadow-lg bg-black sticky top-0 z-50">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
