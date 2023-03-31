@@ -14,7 +14,9 @@ const SingleCategories = () => {
   const { data: homes = [] } = useQuery({
     queryKey: ["homes"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/homes/${params.category}`);
+      const res = await fetch(
+        `https://basabhara-server-mdmasudranainfo.vercel.app/homes/${params.category}`
+      );
       const data = await res.json();
       return data;
     },

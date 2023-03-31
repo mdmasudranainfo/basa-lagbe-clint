@@ -55,13 +55,16 @@ const SellerRequest = () => {
             console.log(sellerInfo);
 
             // send Database start
-            fetch(`http://localhost:5000/sellerrequest/${user?.email}`, {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(sellerInfo),
-            })
+            fetch(
+              `https://basabhara-server-mdmasudranainfo.vercel.app/sellerrequest/${user?.email}`,
+              {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(sellerInfo),
+              }
+            )
               .then((res) => res.json())
               .then((data) => {
                 if (data.acknowledged) {

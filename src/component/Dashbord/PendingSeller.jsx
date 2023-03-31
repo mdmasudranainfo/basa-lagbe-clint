@@ -6,7 +6,9 @@ const PendingSeller = () => {
   const { data: sellers = [], refetch } = useQuery({
     queryKey: ["pending"],
     queryFn: () =>
-      fetch("http://localhost:5000/pending").then((res) => res.json()),
+      fetch("https://basabhara-server-mdmasudranainfo.vercel.app/pending").then(
+        (res) => res.json()
+      ),
   });
 
   // advertised seller...........................
@@ -14,9 +16,12 @@ const PendingSeller = () => {
     console.log(id);
     const agree = window.confirm("Are you sure you want to Approve?");
     if (agree) {
-      fetch(`http://localhost:5000/approved/${id}`, {
-        method: "PUT",
-      })
+      fetch(
+        `https://basabhara-server-mdmasudranainfo.vercel.app/approved/${id}`,
+        {
+          method: "PUT",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {

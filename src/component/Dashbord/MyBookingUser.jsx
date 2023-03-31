@@ -6,11 +6,11 @@ import { AuthContext } from "../../Context/UserContext";
 const MyBookingUser = () => {
   const { user } = useContext(AuthContext);
 
-  const { data: bookings = [] } = useQuery({
+  const { data: bookings, refetch = [] } = useQuery({
     queryKey: ["bookings"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/bookingUser/${user?.email}`
+        `https://basabhara-server-mdmasudranainfo.vercel.app/bookingUser/${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -20,9 +20,12 @@ const MyBookingUser = () => {
   const reportHandelar = (id) => {
     const agree = window.confirm("Are you sure you want to report this");
     if (agree) {
-      fetch(`http://localhost:5000/report/${id}`, {
-        method: "PUT",
-      })
+      fetch(
+        `https://basabhara-server-mdmasudranainfo.vercel.app/report/${id}`,
+        {
+          method: "PUT",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -36,14 +39,18 @@ const MyBookingUser = () => {
   const ConfirmHandelar = (id) => {
     const agree = window.confirm("Are you sure you want to Confirm this");
     if (agree) {
-      fetch(`http://localhost:5000/confirm/${id}`, {
-        method: "PUT",
-      })
+      fetch(
+        `https://basabhara-server-mdmasudranainfo.vercel.app/confirm/${id}`,
+        {
+          method: "PUT",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
           if (data.acknowledged) {
             toast.success("Successfully Booking Confirm");
+            refetch();
           }
         });
     }

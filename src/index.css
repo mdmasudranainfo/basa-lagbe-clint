@@ -9,6 +9,7 @@ html {
 }
 * {
   font-family: "Gentium Book Plus", serif;
+  scroll-behavior: smooth;
 }
 
 .homeCard {

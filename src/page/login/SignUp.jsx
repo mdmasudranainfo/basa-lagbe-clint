@@ -36,7 +36,7 @@ const SignUp = () => {
 
         // post backend start
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://basabhara-server-mdmasudranainfo.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -10,14 +10,18 @@ const AddHome = () => {
   const { data: categorys = [] } = useQuery({
     queryKey: ["categorys"],
     queryFn: () =>
-      fetch("http://localhost:5000/categories").then((res) => res.json()),
+      fetch(
+        "https://basabhara-server-mdmasudranainfo.vercel.app/categories"
+      ).then((res) => res.json()),
   });
 
   // location fetch
   const { data: locations = [] } = useQuery({
     queryKey: ["locations"],
     queryFn: () =>
-      fetch("http://localhost:5000/locations").then((res) => res.json()),
+      fetch(
+        "https://basabhara-server-mdmasudranainfo.vercel.app/locations"
+      ).then((res) => res.json()),
   });
 
   //
@@ -81,7 +85,7 @@ const AddHome = () => {
   };
 
   const savDatabase = (allInfo, from) => {
-    fetch("http://localhost:5000/allbasa", {
+    fetch("https://basabhara-server-mdmasudranainfo.vercel.app/allbasa", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
