@@ -77,7 +77,7 @@ const MyBookingUser = () => {
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking, i) => (
+            {bookings?.map((booking, i) => (
               <tr key={booking._id}>
                 <th>
                   <label>{i + 1}</label>
