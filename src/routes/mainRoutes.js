@@ -65,7 +65,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/homedetails/:id",
-        element: <EachHomeDetails></EachHomeDetails>,
+        element: (
+          <PrivateRoute>
+            <EachHomeDetails></EachHomeDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://basabhara-server-mdmasudranainfo.vercel.app/details/${params.id}`

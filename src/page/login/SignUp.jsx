@@ -73,8 +73,8 @@ const SignUp = () => {
       <div
         className={`md:w-1/2 md:min-w-[650px] mx-auto shadow-xl p-8 mt-10 rounded-lg bg-white`}
       >
-        <h1 className="text-center  mb-4 text-3xl text-primary font-semibold">
-          Registration for User
+        <h1 className="text-center  mb-4 text-2xl text-primary font-semibold">
+          Registration
         </h1>
         <form onSubmit={regHandler}>
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-5">
