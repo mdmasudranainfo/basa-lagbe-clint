@@ -73,7 +73,7 @@ const SignUp = () => {
       <div
         className={`md:w-1/2 md:min-w-[650px] mx-auto shadow-xl p-8 mt-10 rounded-lg bg-white`}
       >
-        <h1 className="text-center  mb-4 text-2xl text-primary font-semibold">
+        <h1 className="text-center  mb-4 text-3xl text-primary font-semibold">
           Registration
         </h1>
         <form onSubmit={regHandler}>
@@ -86,6 +86,7 @@ const SignUp = () => {
                 type="text"
                 placeholder="Enter Your First Name"
                 name="first_name"
+                required
                 className="flex-auto p-4 block rounded-lg font-medium outline-none border border-transparent border-stone-600 focus:border-primary focus:text-black "
               />
             </div>
@@ -97,6 +98,7 @@ const SignUp = () => {
               <input
                 type="text"
                 placeholder="Enter Your Last Name"
+                required
                 name="last_name"
                 className="flex-auto p-4 block rounded-lg font-medium outline-none border border-transparent border-stone-600 focus:border-primary focus:text-black"
               />
@@ -111,6 +113,7 @@ const SignUp = () => {
               type="email"
               placeholder="Enter Your Email"
               name="email"
+              required
               className="flex-auto p-4 block rounded-lg font-medium outline-none border border-transparent border-stone-600 focus:border-primary focus:text-black"
             />
           </div>
@@ -120,9 +123,10 @@ const SignUp = () => {
               Phone Number
             </label>
             <input
-              type="text"
+              type="number"
               placeholder="Enter Your Number"
               name="phoneNumber"
+              required
               className="flex-auto p-4 block rounded-lg font-medium outline-none border border-transparent border-stone-600 focus:border-primary focus:text-black"
             />
           </div>
@@ -135,6 +139,7 @@ const SignUp = () => {
                 type="password"
                 placeholder="Enter Your Password"
                 name="password"
+                required
                 className="flex-auto p-4 block rounded-lg font-medium outline-none border border-transparent border-stone-600 focus:border-primary focus:text-black"
               />
             </div>
@@ -146,6 +151,7 @@ const SignUp = () => {
                 type="password"
                 placeholder="Confirm Password"
                 name="confirm_password"
+                required
                 className="flex-auto p-4 block rounded-lg font-medium outline-none border border-transparent border-stone-600 focus:border-primary focus:text-black"
               />
             </div>
